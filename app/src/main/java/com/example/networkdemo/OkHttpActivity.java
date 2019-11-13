@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -56,6 +57,7 @@ public class OkHttpActivity extends AppCompatActivity implements View.OnClickLis
     private ImageView imageView;
     private ScrollView scrollView;
     private OkHttpClient client;
+    private Button get,post,handin,download;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,15 @@ public class OkHttpActivity extends AppCompatActivity implements View.OnClickLis
         tvResult = findViewById(R.id.text);
         imageView = findViewById(R.id.image);
         scrollView= findViewById(R.id.scrollView);
+        get = findViewById(R.id.get);
+        post = findViewById(R.id.post);
+        handin = findViewById(R.id.handin);
+        download = findViewById(R.id.download);
+
+        get.setOnClickListener(this);
+        post.setOnClickListener(this);
+        handin.setOnClickListener(this);
+        download.setOnClickListener(this);
 
         client = new OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
